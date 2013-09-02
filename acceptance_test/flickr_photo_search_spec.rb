@@ -11,6 +11,7 @@ describe 'searching for photos from Flickr' do
   
   it 'displays a larger image when a search result is clicked' do
     open_page PhotoSearchResultsPage.new('Lionfish')
+    should_see_photos 20
     click_first_result
     should_be_viewing_larger_image
   end

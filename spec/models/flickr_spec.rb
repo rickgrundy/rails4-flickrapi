@@ -12,7 +12,7 @@ describe Flickr do
   describe 'search' do
     before(:each) do
       @photos_api = double
-      # FlickRaw exposes flickr globally (which seems a bit dodgy).
+      # FlickRaw exposes 'flickr' globally (which seems a bit dodgy).
       Object.any_instance.stub(:flickr).and_return double(photos: @photos_api)
     end
     
