@@ -1,0 +1,6 @@
+%h2="Search results for '#{params[:q]}'"
+
+.photo-search-results
+  -@photos.each do |photo|
+    .photo
+      =photo.title

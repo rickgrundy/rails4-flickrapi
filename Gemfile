@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails', '~> 3.0.0'
 gem 'turbolinks', '~> 1.3.0'
 
+gem 'flickraw', '~> 0.9.0'
+
 group :development, :test do
   gem 'foreman'  
   gem 'rspec-rails', '~> 2.14.0'

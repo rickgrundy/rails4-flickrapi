@@ -5,7 +5,7 @@ describe PhotosController do
     QUERY = 'Manta ray'
     
     before(:each) do
-      allow(Flickr).to receive(:search).with(QUERY).and_return(@photos = double)
+      allow(Flickr).to receive(:search).with(QUERY, PhotosController::PER_PAGE).and_return(@photos = double)
     end
     
     context "without a query" do

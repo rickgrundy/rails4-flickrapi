@@ -8,12 +8,12 @@ A simple example of a Rails4 app which talks to Flickr's REST API.
 ## Running the unit tests 
 ```
 bundle install
-bundle exec rspec
+bundle exec rake spec
 ```
 
 ## Running the acceptance tests
 ```
-bundle exec rspec acceptance
+bundle exec rake acceptance
 ```
 
 ## Running the app locally (no database required)

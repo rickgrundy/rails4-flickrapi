@@ -11,14 +11,14 @@ class PhotoSearchResultsPage < PageModels::Base
     should have_content "Search results for '#{@query}'"
   end
   
-  def click_first_result
-    within('.results') { click_link 'a:first' }
+  def should_see_photos(count)
+    within('.photo-search-results') { all('.photo').size.should == count }
   end
   
-  def should_link_to_page(n)
-    within('.pagination') { should have_link n }
+  def click_first_result
+    within('.photo-search-results') { click_link 'a:first' }
   end
-
+  
   def should_be_viewing_larger_image
     find('.larger-image').should be_visible
   end
