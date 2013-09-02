@@ -13,6 +13,6 @@ describe 'searching for photos from Flickr' do
     open_page PhotoSearchResultsPage.new('Lionfish')
     should_see_photos 20
     click_first_result
-    should_be_viewing_larger_image
+    should_see_page PhotoViewerPage
   end
 end

@@ -21,7 +21,7 @@ class PhotoSearchResultsPage < PageModels::Base
   end
   
   def click_first_result
-    within('.photo-search-results') { click_link ':first' }
+    within('.photo-search-results') { find('a:first').click }
   end
   
   def should_be_viewing_larger_image
