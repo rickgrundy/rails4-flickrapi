@@ -2,7 +2,8 @@
 
 .photo-search-results
   -@photos.each do |photo|
-    .photo
-      =photo.title
+    %figure.photo
+      =search_result_image_tag photo
+      %figcaption=photo.title
       
 =link_to "More #{@query} photos", params.merge(page: @page + 1)
