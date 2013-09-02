@@ -5,7 +5,7 @@ describe PhotosController do
     QUERY = 'Manta ray'
     
     before(:each) do
-      allow(Flickr).to receive(:search).with(QUERY, PhotosController::PER_PAGE).and_return(@photos = double)
+      allow(Flickr).to receive(:search).with(QUERY, PhotosController::PER_PAGE, 1).and_return(@photos = double('photos'))
     end
     
     context "without a query" do
@@ -20,18 +20,22 @@ describe PhotosController do
       end
     end
     
-    context "with a query" do
-      before(:each) do
-        get :search, q: QUERY
-      end
-      
+    context "with a query" do      
       it 'renders the search page' do
+        get :search, q: QUERY
         expect(response).to render_template 'search'
       end
       
       it 'assigns @photos' do
+        get :search, q: QUERY
         expect(assigns :photos).to be @photos
-      end     
+      end
+      
+      it 'supports pagination' do
+        expect(Flickr).to receive(:search).with(QUERY, PhotosController::PER_PAGE, 2).and_return(@page2 = double('page2'))
+        get :search, q: QUERY, page: '2'
+        expect(assigns :photos).to be @page2
+      end
     end
   end
 end

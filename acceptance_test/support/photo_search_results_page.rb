@@ -1,14 +1,19 @@
 class PhotoSearchResultsPage < PageModels::Base
-  def initialize(query)
+  def initialize(query, page=1)
     @query = query
+    @page = page
   end
   
   def url
-    search_photos_path(q: @query)
+    search_photos_path(q: @query, page: @page)
   end
   
   def verify!
-    should have_content "Search results for '#{@query}'"
+    should have_content "Search results for '#{@query}' (page #{@page})"
+  end
+  
+  def next_page
+    click_link "More #{@query} photos"
   end
   
   def should_see_photos(count)
@@ -16,7 +21,7 @@ class PhotoSearchResultsPage < PageModels::Base
   end
   
   def click_first_result
-    within('.photo-search-results') { click_link 'a:first' }
+    within('.photo-search-results') { click_link ':first' }
   end
   
   def should_be_viewing_larger_image

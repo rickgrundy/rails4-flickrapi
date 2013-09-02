@@ -4,7 +4,7 @@ class Flickr
     FlickRaw.shared_secret = api_secret
   end
   
-  def self.search(query, count)
-    flickr.photos.search(text: query, per_page: count)
+  def self.search(query, count, page=1)
+    flickr.photos.search(text: query, per_page: count, page: page)
   end
 end

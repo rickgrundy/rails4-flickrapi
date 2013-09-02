@@ -1,6 +1,8 @@
-%h2="Search results for '#{params[:q]}'"
+%h2="Search results for '#{@query}' (page #{@page})"
 
 .photo-search-results
   -@photos.each do |photo|
     .photo
       =photo.title
+      
+=link_to "More #{@query} photos", params.merge(page: @page + 1)
