@@ -10,6 +10,6 @@ class PhotoSearchPage < PageModels::Base
   
   def search_for(query)
     fill_in :q, with: query
-    click 'Search'
+    click_button 'Search'
   end
 end

@@ -1,0 +1,8 @@
+%h1 Flickr photo search
+
+=form_tag search_photos_path, method: 'get' do
+  =label_tag :q, 'Search for photos'
+  =text_field_tag :q, params[:q], placeholder: 'Anything you like!'
+  
+  .buttons
+    =submit_tag 'Search'

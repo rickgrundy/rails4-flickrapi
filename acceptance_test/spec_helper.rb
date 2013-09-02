@@ -7,7 +7,6 @@ Dir[File.join(File.dirname(__FILE__), "/support/**/*.rb")].each { |f| puts f; re
 
 PageModels.configure do |config|
   config.driver = :capybara
-  config.base_url = "http://localhost:#{ENV['PORT']}"
   config.integrate :rspec
   config.integrate :rails
 end

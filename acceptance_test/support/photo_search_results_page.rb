@@ -8,7 +8,6 @@ class PhotoSearchResultsPage < PageModels::Base
   end
   
   def verify!
-    return true
     should have_content "Search results for '#{@query}'"
   end
   
