@@ -8,4 +8,8 @@ class PhotosController < ApplicationController
       @photos = Flickr.search(@query, PER_PAGE, @page) 
     end
   end
+  
+  def show
+    @photo = Flickr.get_photo(params[:id].to_i)
+  end
 end

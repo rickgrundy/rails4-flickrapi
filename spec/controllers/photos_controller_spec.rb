@@ -1,14 +1,14 @@
-require_relative "../spec_helper"
+require_relative '../spec_helper'
 
 describe PhotosController do
-  describe "searching for photos" do
+  describe 'searching for photos' do
     QUERY = 'Manta ray'
     
     before(:each) do
       allow(Flickr).to receive(:search).with(QUERY, PhotosController::PER_PAGE, 1).and_return(@photos = double('photos'))
     end
     
-    context "without a query" do
+    context 'without a query' do
       before(:each) { get :search }
       
       it 'renders the search page' do
@@ -36,6 +36,21 @@ describe PhotosController do
         get :search, q: QUERY, page: '2'
         expect(assigns :photos).to be @page2
       end
+    end
+  end
+  
+  describe 'showing a photo' do
+    before(:each) do
+      allow(Flickr).to receive(:get_photo).with(1234).and_return(@photo = double('photo'))
+      get :show, id: '1234'
+    end
+    
+    it 'renders the show page' do
+      expect(response).to render_template 'show'
+    end
+    
+    it 'assigns @photo' do
+      expect(assigns :photo).to be @photo
     end
   end
 end
