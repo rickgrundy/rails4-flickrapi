@@ -8,6 +8,6 @@ class PhotoViewerPage < PageModels::Base
   end
   
   def verify!
-    should have_selector "h1#photo-#{@photo_id}"
+    should have_selector "h1[data-photo-id='#{@photo_id}']"
   end
 end

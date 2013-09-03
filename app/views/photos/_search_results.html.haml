@@ -2,7 +2,7 @@
 
 .photo-search-results
   -@photos.each do |photo|
-    =link_to photo_path photo.id do
+    =link_to photo_path(photo.id), data: {'photo-id' => photo.id} do
       %figure.photo
         =search_result_image_tag photo
         %figcaption=photo.title

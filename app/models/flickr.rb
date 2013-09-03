@@ -9,6 +9,6 @@ class Flickr
   end
   
   def self.get_photo(id)
-    raise 'Not implemented'
+    flickr.photos.getInfo(photo_id: id)
   end
 end
