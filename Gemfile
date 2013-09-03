@@ -18,3 +18,7 @@ group :development, :test do
   gem 'capybara', '~> 2.1.0'
   gem 'pagemodels', '~> 0.2.0'
 end
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.0'
+end
