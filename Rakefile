@@ -1,4 +1,3 @@
-require 'rspec/core/rake_task'
 require File.expand_path('../config/application', __FILE__)
 Rails4Flickrapi::Application.load_tasks
 
