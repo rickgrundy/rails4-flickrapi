@@ -22,7 +22,7 @@ class PhotoSearchResultsPage < PageModels::Base
   
   def click_first_result
     within('.photo-search-results') do
-      link = find('a:first')
+      link = find('.row a:first')
       link.click
       return link['data-photo-id']
     end

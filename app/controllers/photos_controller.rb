@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  PER_PAGE = 24
+  PER_PAGE = 18
   
   def search
     if params[:q]
