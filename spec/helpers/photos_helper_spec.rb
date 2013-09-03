@@ -6,8 +6,8 @@ describe PhotosHelper do
   end
 
   describe 'image tags for photos' do
-    it 'uses FlickRaw medium for search results' do
-      expect(FlickRaw).to receive(:url_m).with(@photo).and_return 'http://flickr.com/photo_medium.jpg'
+    it 'uses FlickRaw 150x square for search results' do
+      expect(FlickRaw).to receive(:url_q).with(@photo).and_return 'http://flickr.com/photo_medium.jpg'
       tag = search_result_image_tag@photo
       tag.should == image_tag('http://flickr.com/photo_medium.jpg', alt: 'Photo of a starfish')
     end

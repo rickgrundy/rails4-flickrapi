@@ -1,6 +1,5 @@
-%header
+%header.page-header
   = content_tag :h1, @photo.title, data: {'photo-id' => @photo.id}
 
-%figure.photo
+.photo.jumbotron
   = full_size_image_tag @photo
-  %figcaption=@photo.title

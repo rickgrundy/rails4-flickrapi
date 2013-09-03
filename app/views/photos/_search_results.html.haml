@@ -1,10 +1,13 @@
-%h2= "Search results for '#{@query}' (page #{@page})"
+%h2.lead= "Search results for '#{@query}' (page #{@page})"
 
 .photo-search-results
-  -@photos.each do |photo|
-    = link_to photo_path(photo.id), data: {'photo-id' => photo.id} do
-      %figure.photo.col-md-3
-        = search_result_image_tag photo
-        %figcaption=photo.title
-      
-= link_to "More #{@query} photos", params.merge(page: @page + 1)
+  .row
+    - @photos.each do |photo|
+      = link_to photo_path(photo.id), data: {'photo-id' => photo.id} do
+        .col-md-2.col-xs-4
+          %figure.photo
+            = search_result_image_tag photo
+            %figcaption
+              .text=photo.title
+
+  .more-links= link_to "More #{@query} photos »", params.merge(page: @page + 1)

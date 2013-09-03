@@ -1,9 +1,10 @@
-%header
+%header.page-header
   %h1 Flickr photo search
-
-= form_tag search_photos_path, method: 'get' do
-  = label_tag :q, 'Search for photos'
-  = text_field_tag :q, params[:q], placeholder: 'Anything you like!'
-  = submit_tag 'Search'
+    
+= form_tag search_photos_path, method: 'get', class: 'form-inline' do
+  .form-group
+    = label_tag :q, 'Search for photos', class: 'sr-only'
+    = text_field_tag :q, params[:q], placeholder: 'Search for photos', class: 'form-control'
+  = submit_tag 'Search', class: 'btn btn-primary'
     
 = render partial: 'search_results' if @photos
